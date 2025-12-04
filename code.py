@@ -1,14 +1,14 @@
 
 #creating the book class which features the title, author and ISBN
 class Book:
-    def__init__(self, title, author, ISBN)
-    self.title = title
-    self.author = author
+    def __init__(self, title, author, ISBN):
+        self.title = title
+        self.author = author
 
 #creating the library class which holds the books
 class Library:
-    def__init__(self)
-    self.books = []
+    def __init__(self):
+        self.books = []
 
 #simple book dataset
 books = [
@@ -23,3 +23,4 @@ books = [
     Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608"),
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X")
 ]
+
