@@ -10,6 +10,11 @@ class Library:
     def __init__(self):
         self.books = []
 
+    def display_books(self):
+        if not self.books:
+            print("There are no books.")
+            return
+    
 #simple book dataset
 books = [
     Book("Classical Mythology", "Mark P. O. Morford", "0195153448"),
@@ -23,4 +28,3 @@ books = [
     Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608"),
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X")
 ]
-
