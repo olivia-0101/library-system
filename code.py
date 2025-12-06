@@ -4,12 +4,14 @@ class Book:
     def __init__(self, title, author, ISBN):
         self.title = title
         self.author = author
+        self.ISBN = ISBN
 
 #creating the library class which holds the books
 class Library:
     def __init__(self):
         self.books = []
 
+#if there is an error and there are no books in the library, inform the user and stop the function
     def display_books(self):
         if not self.books:
             print("There are no books.")
