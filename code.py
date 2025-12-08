@@ -7,24 +7,8 @@ class Book:
         self.ISBN = ISBN #ISBN of the book
         self.quantity = quantity #quantity of the book available to take out
 
-#creating the library class which holds the books
-
-class Library:
-    def __init__(self):
-        self.books = []
-
-#if there is an error and there are no books in the library, inform the user and stop the function
-    def display_books(self):
-        if not self.books:
-            print("There are no books.")
-            return
-        for book in self.books:
-            print(f"Title: {self.title}, Author: {self.author}, ISBN: {self.ISBN}, quantity: {self.quantity}")
-
-library = Library()
-    
 #simple hard-coded book dataset
-library.books = [
+books = [
     Book("Classical Mythology", "Mark P. O. Morford", "0195153448", "2"),
     Book("Clara Callan", "Richard Bruce Wright", "0002005018", "3"),
     Book("Decision in Normandy", "Carlo D'Este", "0060973129", "4"),
@@ -37,4 +21,5 @@ library.books = [
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", "5")
 ]
 
-library.display_books
+for book in books:
+    print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
