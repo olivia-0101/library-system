@@ -33,6 +33,7 @@ for book in books:
     print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
 
 
+
 #making the user class who can interact with the books
 class User:
     def _init_(self, id):
@@ -47,3 +48,11 @@ class User:
     def return_book(self, book):
         if book in self.borrowed_books:
             self.borrowed_books.remove(book)
+
+
+
+#creating the library class
+class Library:
+    def __init__(self):
+        self.books = []
+        self.users = []
