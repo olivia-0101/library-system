@@ -50,8 +50,10 @@ class Library:
     Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", "1"),
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", "5")  
 ]
-        
+
+#printing all of the books in the books list
         for book in self.books:
             print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")       
 
+#creating the library object from the library class
 library = Library()
