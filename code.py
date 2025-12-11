@@ -51,6 +51,13 @@ class Library:
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
 ]
 
+#searching function that allows the user to find a book based on its title no matter whether they type in caps or not
+    def search_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                return book
+        return None
+
 #printing all of the books in the books list
         for book in self.books:
             print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")       
