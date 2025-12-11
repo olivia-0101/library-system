@@ -15,23 +15,6 @@ class Book:
     def update_quantity(self, quantity):
         self.quantity += quantity
 
-#simple hard-coded book dataset
-books = [
-    Book("Classical Mythology", "Mark P. O. Morford", "0195153448", "2"),
-    Book("Clara Callan", "Richard Bruce Wright", "0002005018", "3"),
-    Book("Decision in Normandy", "Carlo D'Este", "0060973129", "4"),
-    Book("Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It", "Gina Bari Kolata", "0374157065", "10"),
-    Book("The Mummies of Urumchi", "E. J. W. Barber", "0393045218", "9"),
-    Book("The Kitchen God's Wife", "Amy Tan", "0399135782", "5"),
-    Book("What If?: The World's Foremost Military Historians Imagine What Might Have Been", "Robert Cowley", "0425176428", "8"),
-    Book("PLEADING GUILTY", "Scott Turow", "0671870432", "3"),
-    Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", "1"),
-    Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", "5")
-]
-
-for book in books:
-    print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
-
 
 
 #making the user class who can interact with the books
@@ -51,8 +34,24 @@ class User:
 
 
 
-#creating the library class
+#creating the library class that stores all of the books and users
 class Library:
     def __init__(self):
-        self.books = []
         self.users = []
+        self.books = [
+    Book("Classical Mythology", "Mark P. O. Morford", "0195153448", "2"),
+    Book("Clara Callan", "Richard Bruce Wright", "0002005018", "3"),
+    Book("Decision in Normandy", "Carlo D'Este", "0060973129", "4"),
+    Book("Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It", "Gina Bari Kolata", "0374157065", "10"),
+    Book("The Mummies of Urumchi", "E. J. W. Barber", "0393045218", "9"),
+    Book("The Kitchen God's Wife", "Amy Tan", "0399135782", "5"),
+    Book("What If?: The World's Foremost Military Historians Imagine What Might Have Been", "Robert Cowley", "0425176428", "8"),
+    Book("PLEADING GUILTY", "Scott Turow", "0671870432", "3"),
+    Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", "1"),
+    Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", "5")  
+]
+        
+        for book in self.books:
+            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")       
+
+library = Library()
