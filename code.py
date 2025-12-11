@@ -7,6 +7,14 @@ class Book:
         self.ISBN = ISBN #ISBN of the book
         self.quantity = quantity #quantity of the book available to take out
 
+#method that checks if the book is available - above 0 books
+    def check_availability(self):
+        return self.quantity > 0
+
+#updates the quantity of the books in relation to borrowing or returning
+    def update_quantity(self, quantity):
+        self.quantity += quantity
+
 #simple hard-coded book dataset
 books = [
     Book("Classical Mythology", "Mark P. O. Morford", "0195153448", "2"),
@@ -23,3 +31,19 @@ books = [
 
 for book in books:
     print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
+
+
+#making the user class who can interact with the books
+class User:
+    def _init_(self, id):
+        self.id = id
+        self.borrowed_books = []
+
+#giving the user class the ability to borrow books, and adding it to their list of borrowed books
+    def borrow_book(self, book):
+        self.borrowed_books.append(book)
+
+#giving the user class the ability to return books, removing it from their list of borrowed books
+    def return_book(self, book):
+        if book in self.borrowed_books:
+            self.borrowed_books.remove(book)
