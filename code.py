@@ -51,13 +51,14 @@ class Library:
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
 ]
 
-#printing all of the books in the books list
-        for book in self.books:
-            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
-
 #sorting function that sorts the library's books into alphabetical order
     def sort_books_by_title(self):
         self.books.sort(key= lambda book: book.title)
+
+#printing all of the books in the books list
+    def display_books(self):    
+        for book in self.books:
+            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
 
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
         def search_book(self, title):
@@ -66,10 +67,7 @@ class Library:
                     return book
         return None      
 
-#creating the library object from the library class
-library = Library()
-#calling the sorting function
-library.sort_books_by_title()
 
-for book in library.books: 
-    print(book.title)
+library = Library() #creating the library object from the library class
+library.sort_books_by_title() #calling the sorting function
+library.display_books()
