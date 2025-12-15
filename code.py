@@ -61,13 +61,13 @@ class Library:
             print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
 
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
-        def search_book(self, title):
-            for book in self.books:
-                if book.title.lower() == title.lower():
+    def search_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
                     return book
         return None      
 
 
 library = Library() #creating the library object from the library class
 library.sort_books_by_title() #calling the sorting function
-library.display_books()
+library.display_books() #calling the displaying of the books
