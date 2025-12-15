@@ -77,8 +77,19 @@ class Library:
             print("Book unavailable.") #prints an error message letting the user know there are none of those books left
             return #stops the function
         
-        user.borrow_book(book)
-        book.update_quantity(-1)
+        user.borrow_book(book) #calls the user's borrowing book method
+        book.update_quantity(-1) #updates the book list by removing one
+
+#returning function that allows the user to return a book to the library based on its title
+    def return_book(self, user, title): #defines that the user is returning the book by its title
+        for book in user.borrowed_books: #the library loops through the user's borrowed books
+            user.return_book(book) #calls the method
+            book.update_quantity(1) #updates the book list by adding one
+            print(f"{title} has been successfully returned to the library.") #prints a message stating that the book has been returned to the library
+            return #stops the function
+        
+        print("User has not borrowed this book.") #if the book cannot be found, print this message
+
 
 
 library = Library() #creating the library object from the library class
