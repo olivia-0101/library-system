@@ -55,12 +55,21 @@ class Library:
         for book in self.books:
             print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
 
+#sorting function that sorts the library's books into alphabetical order
+    def sort_books_by_title(self):
+        self.books.sort(key= lambda book: book.title)
+
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
-    def search_book(self, title):
-        for book in self.books:
-            if book.title.lower() == title.lower():
-                return book
+        def search_book(self, title):
+            for book in self.books:
+                if book.title.lower() == title.lower():
+                    return book
         return None      
 
 #creating the library object from the library class
 library = Library()
+#calling the sorting function
+library.sort_books_by_title()
+
+for book in library.books: 
+    print(book.title)
