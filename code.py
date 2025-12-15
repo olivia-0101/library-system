@@ -19,9 +19,9 @@ class Book:
 
 #making the user class who can interact with the books
 class User:
-    def __init__(self, id):
+    def __init__(self, id): #only has an ID as an attribute
         self.id = id
-        self.borrowed_books = []
+        self.borrowed_books = [] #the user stores their borrowed books
 
 #giving the user class the ability to borrow books, and adding it to their list of borrowed books
     def borrow_book(self, book):
@@ -37,8 +37,8 @@ class User:
 #creating the library class that stores all of the books and users
 class Library:
     def __init__(self):
-        self.users = []
-        self.books = [
+        self.users = [] #the library stores all of the users
+        self.books = [ #the library stores all of the books
     Book("Classical Mythology", "Mark P. O. Morford", "0195153448", 2),
     Book("Clara Callan", "Richard Bruce Wright", "0002005018", 3),
     Book("Decision in Normandy", "Carlo D'Este", "0060973129", 4),
@@ -51,14 +51,14 @@ class Library:
     Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
 ]
 
-#sorting function that sorts the library's books into alphabetical order
+#sorting function that sorts the library's books into alphabetical order by title
     def sort_books_by_title(self):
         self.books.sort(key= lambda book: book.title)
 
 #printing all of the books in the books list
     def display_books(self):    
         for book in self.books:
-            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}")
+            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}") #prints 
 
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
     def search_book(self, title):
@@ -66,6 +66,19 @@ class Library:
             if book.title.lower() == title.lower():
                     return book
         return None      
+
+#borrowing function that allows the user to borrow a book based on its title
+    def borrow_book(self, user, title): #defines that the user is borrowing the book by its title
+        book = self.search_book(title) #the library looks through its list
+        if not book: #checks if the search fails
+            print("Book not found.") #prints an error message letting the user know the book cannot be found
+            return #stops the function
+        if not book.check_availability(): #checks if any of the books are available
+            print("Book unavailable.") #prints an error message letting the user know there are none of those books left
+            return #stops the function
+        
+        user.borrow_book(book)
+        book.update_quantity(-1)
 
 
 library = Library() #creating the library object from the library class
