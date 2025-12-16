@@ -55,7 +55,7 @@ class Library:
 #printing all of the books in the books list
     def display_books(self):    
         for title in sorted(self.books.keys()):
-            book = self.books(title)
+            book = self.books[title]
             print(
                 f"Title: {book.title}, "
                 f"Author: {book.author}, "
@@ -82,11 +82,13 @@ class Library:
 
 #returning function that allows the user to return a book to the library based on its title
     def return_book(self, user, title): #defines that the user is returning the book by its title
-        for book in user.borrowed_books: #the library loops through the user's borrowed books
-            user.return_book(book) #calls the method
-            book.update_quantity(1) #updates the book list by adding one
-            print(f"{title} has been successfully returned to the library.") #prints a message stating that the book has been returned to the library
-            return #stops the function
+        title = title.lower()
+        for book in user.borrowed_books:
+            if book.title.lower() == title:
+                user.return_book(book) #calls the method
+                book.update_quantity(1) #updates the book list by adding one
+                print(f"{book.title} has been successfully returned to the library.") #prints a message stating that the book has been returned to the library
+                return #stops the function
         
         print("User has not borrowed this book.") #if the book cannot be found, print this message
 
