@@ -38,34 +38,34 @@ class User:
 class Library:
     def __init__(self):
         self.users = [] #the library stores all of the users
-        self.books = [ #the library stores all of the books
-    Book("Classical Mythology", "Mark P. O. Morford", "0195153448", 2),
-    Book("Clara Callan", "Richard Bruce Wright", "0002005018", 3),
-    Book("Decision in Normandy", "Carlo D'Este", "0060973129", 4),
-    Book("Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It", "Gina Bari Kolata", "0374157065", 10),
-    Book("The Mummies of Urumchi", "E. J. W. Barber", "0393045218", 9),
-    Book("The Kitchen God's Wife", "Amy Tan", "0399135782", 5),
-    Book("What If?: The World's Foremost Military Historians Imagine What Might Have Been", "Robert Cowley", "0425176428", 8),
-    Book("PLEADING GUILTY", "Scott Turow", "0671870432", 3),
-    Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", 1),
-    Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
-]
+        self.books = { #the library stores all of the books
+            "classical mythology": Book("Classical Mythology", "Mark P. O. Morford", "0195153448", 2),
+            "clara callan": Book("Clara Callan", "Richard Bruce Wright", "0002005018", 3),
+            "decision in normandy": Book("Decision in Normandy", "Carlo D'Este", "0060973129", 4),
+            "flu: the story of the great influenza pandemic of 1918 and the search for the virus that caused it": Book("Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It", "Gina Bari Kolata", "0374157065", 10),
+            "the mummies of urumchi": Book("The Mummies of Urumchi", "E. J. W. Barber", "0393045218", 9),
+            "the kitchen god's wife": Book("The Kitchen God's Wife", "Amy Tan", "0399135782", 5),
+            "what if?: the world's foremost military historians imagine what might have been": Book("What If?: The World's Foremost Military Historians Imagine What Might Have Been", "Robert Cowley", "0425176428", 8),
+            "pleading guilty": Book("PLEADING GUILTY", "Scott Turow", "0671870432", 3),
+            "under the black flag: the romance and the reality of life among the pirates": Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", 1),
+            "where you'll find me: and other stories": Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
+        }
 
-#sorting function that sorts the library's books into alphabetical order by title
-    def sort_books_by_title(self):
-        self.books.sort(key= lambda book: book.title)
 
 #printing all of the books in the books list
     def display_books(self):    
-        for book in self.books:
-            print(f"Title: {book.title}, Author: {book.author}, ISBN: {book.ISBN}, quantity: {book.quantity}") #prints 
+        for title in sorted(self.books.keys()):
+            book = self.books(title)
+            print(
+                f"Title: {book.title}, "
+                f"Author: {book.author}, "
+                f"ISBN: {book.ISBN}, "
+                f"Quantity: {book.quantity}"
+            ) #prints 
 
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
     def search_book(self, title):
-        for book in self.books:
-            if book.title.lower() == title.lower():
-                    return book
-        return None      
+        return self.books.get(title.lower())
 
 #borrowing function that allows the user to borrow a book based on its title
     def borrow_book(self, user, title): #defines that the user is borrowing the book by its title
