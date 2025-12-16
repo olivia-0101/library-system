@@ -93,5 +93,4 @@ class Library:
 
 
 library = Library() #creating the library object from the library class
-library.sort_books_by_title() #calling the sorting function
 library.display_books() #calling the displaying of the books
