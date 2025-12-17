@@ -93,6 +93,6 @@ class Library:
         print("User has not borrowed this book.") #if the book cannot be found, print this message
 
 
-
-library = Library() #creating the library object from the library class
-library.display_books() #calling the displaying of the books
+if __name__ == "__main__":
+    library = Library() #creating the library object from the library class
+    library.display_books() #calling the displaying of the books
