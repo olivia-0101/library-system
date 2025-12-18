@@ -50,7 +50,7 @@ class Library:
             "where you'll find me: and other stories": Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
         }
         #hard-coding 90 random books
-        for i in range(11, 511):
+        for i in range(11, 3011):
             title = f"Book {i}"
             title_key = title.lower()
             author = f"Author{i}"
@@ -110,6 +110,8 @@ print("2. Return Books")
 print("3. Search for Books")
 print("Below are the books currently available in the library.")
     
-library = Library() #creating the library object from the library class
-library.list_books()
-library.display_books() #calling the displaying of the books
+empty_library = Library() #creating the library object from the library class
+empty_library.list_books()
+empty_library.display_books() #calling the displaying of the books
+book = empty_library.search_book("Nonexistent")
+print(book)
