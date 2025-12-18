@@ -1,11 +1,11 @@
+import csv
 
 #creating the book class which features the title, author, ISBN and the quantity of the books available
 class Book:
-    def __init__(self, title, author, ISBN, quantity):
+    def __init__(self, title, author, ISBN):
         self.title = title #title of the book
         self.author = author #author of the book
         self.ISBN = ISBN #ISBN of the book
-        self.quantity = quantity #quantity of the book available to take out
 
 #method that checks if the book is available - above 0 books
     def check_availability(self):
@@ -38,18 +38,21 @@ class User:
 class Library:
     def __init__(self):
         self.users = [] #the library stores all of the users
-        self.books = { #the library stores all of the books
-            "classical mythology": Book("Classical Mythology", "Mark P. O. Morford", "0195153448", 2),
-            "clara callan": Book("Clara Callan", "Richard Bruce Wright", "0002005018", 3),
-            "decision in normandy": Book("Decision in Normandy", "Carlo D'Este", "0060973129", 4),
-            "flu: the story of the great influenza pandemic of 1918 and the search for the virus that caused it": Book("Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It", "Gina Bari Kolata", "0374157065", 10),
-            "the mummies of urumchi": Book("The Mummies of Urumchi", "E. J. W. Barber", "0393045218", 9),
-            "the kitchen god's wife": Book("The Kitchen God's Wife", "Amy Tan", "0399135782", 5),
-            "what if?: the world's foremost military historians imagine what might have been": Book("What If?: The World's Foremost Military Historians Imagine What Might Have Been", "Robert Cowley", "0425176428", 8),
-            "pleading guilty": Book("PLEADING GUILTY", "Scott Turow", "0671870432", 3),
-            "under the black flag: the romance and the reality of life among the pirates": Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", 1),
-            "where you'll find me: and other stories": Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
-        }
+        self.books = {} #the library stores all of the books
+        with open("books.csv", newline="", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+
+            for i, row in enumerate(reader):
+                if i >= 100:
+                    break
+                
+                title_key = row["Book-Title"].lower()
+
+                self.books[title_key] = Book(
+                    row["Book-Title"],
+                    row["Book-Author"],
+                    row["ISBN"],
+                )
 
 
 #printing all of the books in the books list
@@ -103,6 +106,7 @@ print("2. Return Books")
 print("3. Search for Books")
 print("Below are the books currently available in the library.")
     
+
 library = Library() #creating the library object from the library class
 library.list_books() #listing the books
 library.display_books() #calling the displaying of the books beneath the list
