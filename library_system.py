@@ -39,18 +39,18 @@ class Library:
     def __init__(self):
         self.users = [] #the library stores all of the users
         self.books = {} #the library stores all of the books
-        with open("books.csv", newline="", encoding="utf-8") as file:
-            reader = csv.DictReader(file)
+        with open("library.csv", newline="", encoding="utf-8") as file:
+            reader = csv.DictReader(file, delimiter=';')
 
             for i, row in enumerate(reader):
                 if i >= 100:
                     break
                 
-                title_key = row["Book-Title"].lower()
+                title_key = row["Title"].lower()
 
                 self.books[title_key] = Book(
-                    row["Book-Title"],
-                    row["Book-Author"],
+                    row["Title"],
+                    row["Author"],
                     row["ISBN"],
                 )
 
