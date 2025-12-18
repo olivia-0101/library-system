@@ -3,10 +3,10 @@ from library_system import User, Library
 Mary = User(234)
 library = Library()
 
-library.borrow_book(Mary, "classical mythology")
-library.return_book(Mary, "classical mythology")
+book_title = "classical mythology"
+book = library.search_book(book_title)
 
-for book in Mary.borrowed_books:
-    print(book.title)
-
-print(library.books)
+if book:
+    print("{book.title} by {book.author} is available. There are {book.quantity}.")
+else:
+    print("Book not found.")
