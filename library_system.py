@@ -37,7 +37,7 @@ class User:
 class Library:
     def __init__(self):
         self.users = [] #the library stores all of the users
-        self.books = { #the library stores all of the books
+        self.books = { #the library stores all of the books in a dictionary
             "classical mythology": Book("Classical Mythology", "Mark P. O. Morford", "0195153448", 2),
             "clara callan": Book("Clara Callan", "Richard Bruce Wright", "0002005018", 3),
             "decision in normandy": Book("Decision in Normandy", "Carlo D'Este", "0060973129", 4),
@@ -50,7 +50,7 @@ class Library:
             "where you'll find me: and other stories": Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
         }
         #hard-coding 90 random books
-        for i in range(11, 3011):
+        for i in range(11, 3011): #up to 3000 books
             title = f"Book {i}"
             title_key = title.lower()
             author = f"Author{i}"
@@ -60,7 +60,7 @@ class Library:
             self.books[title_key] = Book(title, author, isbn, quantity)
             
 
-#printing all of the books in the books list
+#printing all of the books in the books dictionary
     def display_books(self):    
         for title in sorted(self.books.keys()):
             book = self.books[title]
@@ -69,8 +69,9 @@ class Library:
                 f"Author: {book.author}, "
                 f"ISBN: {book.ISBN}, "
                 f"Quantity: {book.quantity}"
-            ) #prints 
+            ) #prints all attributes and books
 
+#method that is just part of the list
     def list_books(self):
         if self.books:
             print("Books:")
@@ -104,14 +105,12 @@ class Library:
         
         print("User has not borrowed this book.") #if the book cannot be found, print this message
 
+#user interface
 print("Welcome to the Library! Here you can:")
 print("1. Borrow Books")
 print("2. Return Books")
 print("3. Search for Books")
 print("Below are the books currently available in the library.")
     
-empty_library = Library() #creating the library object from the library class
-empty_library.list_books()
-empty_library.display_books() #calling the displaying of the books
-book = empty_library.search_book("Nonexistent")
-print(book)
+library = Library() #creating the library object from the library class
+library.display_books() #calling the displaying of the books

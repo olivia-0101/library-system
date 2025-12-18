@@ -4,14 +4,14 @@ import time
 
 start = time.time()
 
-Mary = User(234)
 library = Library()
 
-book_title = "classical mythology"
-Mary.borrow_book(book_title)
-library.display_books
+for book in library.books.values():
+    book.quantity = 0
+
+Samantha = User(234)
+library.borrow_book(Samantha, "classical mythology")
 
 end = time.time()
 
-print(Mary.borrowed_books)
 print(f"Time taken to display books: {end - start} seconds.")
