@@ -42,6 +42,8 @@ class Library:
         with open("library.csv", newline="", encoding="utf-8") as file:
             reader = csv.DictReader(file, delimiter=';')
 
+            print(reader.fieldnames)
+
             for i, row in enumerate(reader):
                 if i >= 100:
                     break
@@ -49,9 +51,9 @@ class Library:
                 title_key = row["Title"].lower()
 
                 self.books[title_key] = Book(
-                    row["Title"],
-                    row["Author"],
-                    row["ISBN"],
+                    title = title,
+                    author=row["Author"],
+                    ISBN=row["ISBN"],
                 )
 
 
