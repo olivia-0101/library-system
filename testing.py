@@ -7,6 +7,6 @@ book_title = "classical mythology"
 book = library.search_book(book_title)
 
 if book:
-    print("{book.title} by {book.author} is available. There are {book.quantity}.")
+    print(f"{book.title} by {book.author} is available. There are {book.quantity}.")
 else:
     print("Book not found.")
