@@ -96,6 +96,7 @@ class Library:
         
         print("User has not borrowed this book.") #if the book cannot be found, print this message
 
+#library interface
 print("Welcome to the Library! Here you can:")
 print("1. Borrow Books")
 print("2. Return Books")
@@ -103,5 +104,5 @@ print("3. Search for Books")
 print("Below are the books currently available in the library.")
     
 library = Library() #creating the library object from the library class
-library.list_books()
-library.display_books() #calling the displaying of the books
+library.list_books() #listing the books
+library.display_books() #calling the displaying of the books beneath the list
