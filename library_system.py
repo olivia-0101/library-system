@@ -63,6 +63,10 @@ class Library:
                 f"Quantity: {book.quantity}"
             ) #prints 
 
+    def list_books(self):
+        if self.books:
+            print("Books:")
+
 #searching function that allows the user to find a book based on its title no matter whether they type in caps or not
     def search_book(self, title):
         return self.books.get(title.lower())
@@ -92,7 +96,12 @@ class Library:
         
         print("User has not borrowed this book.") #if the book cannot be found, print this message
 
-
-if __name__ == "__main__":
-    library = Library() #creating the library object from the library class
-    library.display_books() #calling the displaying of the books
+print("Welcome to the Library! Here you can:")
+print("1. Borrow Books")
+print("2. Return Books")
+print("3. Search for Books")
+print("Below are the books currently available in the library.")
+    
+library = Library() #creating the library object from the library class
+library.list_books()
+library.display_books() #calling the displaying of the books
