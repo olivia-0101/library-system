@@ -49,7 +49,8 @@ class Library:
             "under the black flag: the romance and the reality of life among the pirates": Book("Under the Black Flag: The Romance and the Reality of Life Among the Pirates", "David Cordingly", "0679425608", 1),
             "where you'll find me: and other stories": Book("Where You'll Find Me: And Other Stories", "Ann Beattie", "074322678X", 5)  
         }
-        for i in range(11, 101):
+        #hard-coding 90 random books
+        for i in range(11, 511):
             title = f"Book {i}"
             title_key = title.lower()
             author = f"Author{i}"
